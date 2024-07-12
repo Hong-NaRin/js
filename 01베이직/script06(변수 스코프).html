@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // JS var 변수의 스코프는 function이다
+        // 중복 변수 선언이 가능 - 유연성을 가짐
+        var a = 1;
+        if(true) {
+            var a = 2; // 전역변수 취급이 됨
+        }
+        console.log(a); // 2
+
+        for(var i = 1; i <= 10; i++) {
+        }
+        console.log(i); // 11 -> 중괄호 스코프가 아니라서 i값이 살아있음
+
+        // function 
+        function func() {
+            var a = 10; // function 안에서만 지역변수 취급
+        }
+        console.log(a); // 위에 선언한 2가 나옴
+    </script> 
+</body>
+</html>

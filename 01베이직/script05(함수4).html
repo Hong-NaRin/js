@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // ES6 JS함수 미리보기
+        // var func1 = function(a,b) {
+        //     return a+b;
+        // }
+        var func1 = (a, b) => a + b; // 코드가 한 줄인 경우는 {}를 생략하면 return된다.
+
+        // var func2 = function(a,b) {
+        //     var sum = 0;
+        //     for(var i = a; i <= b; i++) {
+        //         sum += i;
+        //     }
+        //     return sum;
+        // }
+        var func2 = (a, b) => { // 코드가 여러 줄이면, 중괄호를 그냥 쓰면 된다
+            var sum = 0;
+            for(var i = a; i <= b; i++) {
+                sum+=i;
+            }
+            return sum;
+        }
+
+        // var func3 = function(a) {
+        //     console.log('매개변수:' + a);
+        // }
+        var func3 = a => console.log('매개변수:' + a); // 매개변수가 1개이면 ()를 생략할 수도 있음
+
+        console.log(func1(1,2)); // 3
+        console.log(func2(1,10)); // 55 
+        console.log(func3(5));
+
+    </script>
+</body>
+</html>

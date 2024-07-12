@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 매개변수와 반환이 있는 익명함수
+        var func = function(a,b) {
+            return a+b;
+        }
+        console.log(func(1,2));
+
+        console.log('----------------------------------------------');
+
+        var method = function(num) {
+            console.log(num%2==0 ? "짝수" : "홀수");
+        }
+        var point = function(a,b,c,d) {
+            return a+ '님의 평균은:'+ (b+c+d)/3 + "입니다";
+        }
+
+        method(10);
+        console.log(point('홍길동', 88, 90, 90));
+
+        console.log('-----------------------------------------------');
+
+        // js에서는 함수의 매개변수가 지켜지지 않아도 호출된다
+        // 단, 매개변수를 지키는 게 좋다
+        var x = function(a,b) {
+            // 매개변수는 arguments 객체로 전달된다
+            console.log(arguments);
+            console.log("첫째 매개변수:" + arguments[0]); 
+            console.log("둘째 매개변수:" + arguments[1]); 
+            return a+b;
+        }
+
+        // console.log(x()); // 호출은 되지만 값은 없기 때문에 NaN
+        console.log(x(1,2,3,4,5,6));
+
+    </script>
+</body>
+</html>

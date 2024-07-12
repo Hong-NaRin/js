@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 데이터 타입과 연산자
+        var num1 = "10";
+        var num2 = '10';
+        var num3 = 10;
+        num4 = 10; /* var를 제외해도 변수 선언은 가능하지만 써주는 게 좋음 */
+
+        num2 = 3.14; /* 변수를 수정할 때는 var를 제외하고 써줌 */
+        console.log(num1 + num2 + num3); // 문자열에 뭐가 붙던 문자열임 - 103.1410 (검정색으로 반환)
+        console.log(num2 + num3); // 13.14 숫자 
+
+        var bool = true; // boolean타입
+        var un; // undefined - 초기화를 안 하면 나타남
+        var tag = document.querySelector("ㅎㅎ"); // null - 값은 지정했지만 값이 없을 때 
+        console.log(bool); // true
+        console.log(un); // undefined
+        console.log(tag); // null
+
+        // 타입확인
+        console.log(typeof num1);
+        console.log(typeof num2);
+        console.log(typeof num3);
+        console.log(typeof un);
+        console.log(typeof tag);
+
+        console.log('-----------------------------------------');
+
+        // 연산자
+        var a = "10";
+        var b = 10;
+        console.log(a == b); // (==)는 단순히 값만 비교해서 true
+        console.log(a != b); // false 
+        console.log(a === b); // (===)는 값과 타입을 둘 다 비교해서 false
+        console.log(a !== b); // true 
+
+        var c; // undefined
+        var d = null; 
+        console.log(c == d); // 둘 다 비어있다고 보기 때문에 true
+        console.log(c === d); // false
+        
+    </script>
+</body>
+</html>
