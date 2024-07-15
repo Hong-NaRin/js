@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 나중에 원격에 있는 어떤 데이터를 읽거나, 보낼 때 반드시 문자열 형식이어야 한다
+        var data = [
+            {id: 'aaa123', title: 'java'},
+            {id: 'bbb123', title: 'jsp'},
+            {id: 'ccc123', title: 'js'}
+        ]
+        console.log(data); // -> 문자열로 반환해줘야 함
+
+        // 객체, 배열 -> 문자열 반환 JSON.stringify()
+        var json = JSON.stringify(data);
+        console.log(json);
+
+        // 문자열(JSON) -> 객제, 배열 반환 JSON.parse()
+        var obj = JSON.parse(json);
+        console.log(obj);
+        
+        // 단, JSON 문자열을 표기할 때는 중요한 규칙이 하나 있는데 key, value가 반드시 ""로 묶여야 parsing 시킬 수 있음
+        // var x = '{name: "홍길동", age: 2}'
+        var x = '{"name": "홍길동", "age": 2}' 
+        var result = JSON.parse(x);
+        console.log(result);
+    </script>
+</body>
+</html>

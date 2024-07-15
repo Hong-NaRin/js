@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1st
+        // var a = 1;
+        // function x() {
+        //     var a = 10;
+        //     console.log(a);
+        // }
+        // x(); // 10
+
+        // 2nd
+        // var b = 1; 
+        // function y() {
+        //     var b = 10;
+        //     z();
+        // }
+
+        // function z() {
+        //     console.log(b);
+        // }
+        // y(); // 1
+
+        // 3nd
+        // var b = 1;
+        // function y() {
+        //     var b = 10;
+        //     function z() { // 함수 안에 함수가 선언될 수 있음
+        //         console.log(b); // 함수의 선언 위치에 따라 접근하는 스코프(범위)가 달라지는데, 렉시컬 스코프라고 부름
+        //     }
+        //     z();
+        // }
+        // y(); // 10
+
+
+        // 클로저 - 함수 안에 선언되는 내부함수를 이용해서 바깥에서 변수 a에 접근할 수 있는 환경을 만들어줌
+        function func() {
+            var a = 1; // 지역
+            // var x = function() {}
+            return function() {
+                return a;
+            }
+
+        } // a의 접근 범위가 여기서 끝
+
+        var x = func(); // 내부함수를 반환시킬 수 있음
+        var a = x();
+        console.log(a); // 1
+        
+        console.log('-----------------------------------------------------------------');
+
+        // function compute() {
+        //     var count = 0;
+        //     return ++count;
+        // }
+        // console.log(compute()); // 지역변수이므로 값이 바뀌지 않아 계속 1이 반환
+        // console.log(compute()); // 1
+        // console.log(compute()); // 1
+
+        // 위를 클로저 상황으로 만듦
+        function compute() {
+            var count = 0 ;
+            return function() { // 내부 변수의 변수값을 기억
+                return ++count;
+            }
+        }  
+        var x = compute();
+        console.log(x()); // 1 
+        console.log(x()); // 2
+        console.log(x()); // 3
+        console.log("--------------------------------------------------------------------");
+
+        // 클로저를 사용한 getter, setter
+        function obj() {
+            var name="홍길동";
+            return {
+                getName: function() {
+                    return name;
+                }, 
+                setName: function(aaa) {
+                    name = aaa;
+               }
+            } // {키:값}
+        }
+        var obj = obj();
+        console.log(obj);
+        obj.setName("이순신"); // setter
+        console.log(obj.getName());
+    </script>
+</body>
+</html>

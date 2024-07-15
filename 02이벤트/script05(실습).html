@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- change이벤트 걸기 (방법은 자유, 결과는 console로 실행되는 것만 확인) -->
+    <select  onchange="change()" > <!-- change는 옵션 태그가 아닌 select 태그에 건다 -->
+        <option value="1">서울시</option>
+        <option value="2">경기도</option>
+        <option value="3">부산광역시</option>
+    </select>
+    <script>
+        function change() {
+            console.log('change이벤트 실행');
+        }
+    </script>
+    
+    <!-- focus, blur 이벤트 걸기 -->
+    이름: <input type="text" id="name"> 
+    <script>
+        var x = document.getElementById("name");
+        x.onfocus = function() { // 포커싱이 들어갈 때 동작
+            console.log('포커스 동작');
+        }
+        x.onblur = function() { // 포커싱이 나올 때 동작
+            console.log('포커스 out'); 
+        }
+    </script>
+
+    <!-- mouseenter, mouseout 이벤트 걸기 -->
+    <div style="width: 100px; height: 100px; border: 1px solid #777;" id="box"></div>
+    <script>
+        var box = document.getElementById("box");
+        box.addEventListener('mouseenter', function() { // 마우스가 네모칸 안에 들어갈 때 동작
+            console.log('마우스엔터');
+        })       
+        box.addEventListener('mouseout', function() { // 마우스가 네모칸 안에서 나올 때 동작
+            console.log('마우스아웃');
+        })
+    </script>
+</body>
+</html>

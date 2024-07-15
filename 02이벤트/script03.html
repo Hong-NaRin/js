@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">표준이벤트</button>
+    <script>
+        var btn = document.getElementById("btn");
+
+        // var x = function() {} 또는 function x() {}
+        // btn.addEventListener('click', x)
+
+        // on키워드는 제외한 이벤트명, 리스너함수
+        btn.addEventListener('click',function() {
+            console.log('표준이벤트');
+        }); 
+
+        // 장점 - 리스너 방식은 동일한 이벤트를 여러개 걸 수 있음
+        btn.addEventListener('click', function() {
+            console.log('표준이벤트2');
+        }) 
+    </script>
+</body>
+</html>
