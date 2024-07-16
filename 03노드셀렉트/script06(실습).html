@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>수량증감</h3>
+    <input type="number" value="0" class="count" readonly>
+    <button type="button" class="plus">+</button>
+    <button type="button" class="minus">-</button>
+
+    <script>
+        var count = document.querySelector(".count");
+        var plus = document.querySelector(".plus")
+        var minus = document.querySelector(".minus")
+       
+        plus.onclick = function() {
+            count.value++;
+        }
+
+        minus.onclick = function() {
+            if(count.value == 0) {
+                alert('0이하는 불가능합니다.');
+                return;
+            }
+            count.value--;
+        }
+        
+    </script>
+</body>
+</html>

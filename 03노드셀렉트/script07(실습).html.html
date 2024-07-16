@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+<pre> 
+1. 예약버튼 클릭시 좌석이 최소 1개 이상 체크되어 있지 않다면 경고창을 띄우는 코드를 작성하세요.
+2. 체크된 값은 예약 확인란에 출력해주세요.
+3. 힌트 - 버튼 클릭시 배열에 값을 저장하고, 화면에는 문자열로 만들어 출력합니다.😊
+</pre>
+    <form>
+        좌석:
+        <input type="checkbox" name="seat" value="1">1
+        <input type="checkbox" name="seat" value="2">2
+        <input type="checkbox" name="seat" value="3">3
+        <input type="checkbox" name="seat" value="4">4
+        <input type="checkbox" name="seat" value="5">5
+        <input type="checkbox" name="seat" value="6">6
+        <input type="checkbox" name="seat" value="7">7
+		<input type="checkbox" name="seat" value="8">8
+		<input type="checkbox" name="seat" value="9">9
+		<input type="checkbox" name="seat" value="10">10
+
+        <br>
+        <button type="button" id="btn">예약</button>
+		
+		<br>
+		예약번호:<div id="result"></div>
+
+    </form>
+
+    <script>
+        var seat = document.querySelectorAll("input[name=seat]"); // 배열
+        var btn = document.getElementById("btn");
+        var result = document.getElementById("result");
+
+        btn.onclick = function() {
+            // seat 태그들에서 checked 되어 있는 속성만 배열에 추가 
+            var arr = new Array(); // 빈 배열
+
+            for(var i = 0; i < seat.length; i++) {
+                if(seat[i].checked) {
+                    arr.push(seat[i].value); // 체크되어 있는 태그의 value
+                }
+            }
+
+            if(arr.length === 0) {
+                alert('예약번호 선택은 필수입니다');
+            }
+            else {
+                var str = "";
+                for(var i = 0; i < arr.length; i++) {
+                    str += arr[i] + "번 "
+                }
+                result.innerHTML = str; // 문자열 삽입
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        input:focus {
+            outline: none; /* 포커스시 기본 보더 x */
+        }
+    </style>
+</head>
+<body>
+<pre>
+아이디나 비밀번호가 변경될 때마다 다음을 구현
+힌트 : onkeyup이벤트
+문자열길이 : length
+엘리먼트 사이에 값을 넣기 innerHTML
+</pre>
+
+    아이디: <input type="text" name="id">
+    <span class="idMsg"></span>
+
+    <script>
+        var id = document.querySelector("input[name=id]");
+        var idMsg = document.querySelector(".idMsg");
+        
+        id.onkeyup = function() { // 키보드를 누를 때마다 동작
+
+            if(id.value.length < 4) {
+                id.style.border = "3px solid red";
+                idMsg.innerHTML = "아이디는 4글자 이상입니다";
+            }
+            else {
+                id.style.border = "3px solid green"; 
+                idMsg.innerHTML = "";
+            }
+        }
+
+    </script>
+</body>
+</html>
