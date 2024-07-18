@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button type="button" id="btn">앞에서부터 삭제하기</button>
+    <ul class="list">
+        <li>1. 카리나</li>
+        <li>2. 윈터</li>
+        <li>3. 닝닝</li>
+        <li ondblclick="del(this)">4. 지젤</li> <!-- 더블클릭 이벤트-->
+    </ul>
+    <script>
+
+        var btn = document.querySelector("#btn");
+        var list = document.querySelector(".list");
+        
+        btn.onclick = function() {
+        // **********************************************개발자 도구 console 창에 list. 로 쓸 수 있는 속성 다 나옴**************************************************
+            // 그 수많은 속성 중 두 가지!!
+            // 1. childNodes : NodeList(9) [text, li, text, li, text, li, text, li, text] - 공백도 포함시켜서 가져옴 (그래서인지 쓸 일 잘 없음)
+            // 2. children : HTMLCollection(4) [li, li, li, li] - 태그(엘리먼트)만 가져옴
+            // console.log(list.children);
+            // console.log(list.children[0]); // 첫째 자식
+            // console.log(list.children[list.children.length-1]); // 마지막 자식
+
+            //list.removeChild( list.children[0] );
+            list.removeChild( list.firstElementChild );
+        }
+
+
+        function del(a) {
+           a.remove(); //태그 삭제
+        }
+    </script>
+</body>
+</html>
