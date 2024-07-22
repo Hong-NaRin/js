@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="box">
+        <li>1. 안유진</li> 
+        <li>2. 이영지</li> 
+        <li>3. 이은지</li> 
+        <li>4. 미미</li> 
+        <li>5. 나영석</li> 
+    </ul>
+
+    <p class="result"></p>
+
+    <script>
+        // 모든 li를 얻기
+        var lis = document.querySelectorAll(".box > li"); // 배열
+        var result = document.querySelector(".result");
+        console.log(lis);
+
+        // 만약 태그가 1000개라면 반복을 1000번 돌아야 함 -> 좋은 코드는 아니라는 의미 
+        for(var i = 0; i < lis.length; i++) {
+            lis[i].onclick = function(e) { // 함수의 첫번째 매개변수 값에 자동으로 이벤트 객체가 삽입됨
+                // result.innerHTML = lis[i].innerHTML; // X
+                // result.innerHTML = this.innerHTML; // O
+
+                result.innerHTML = e.target.innerHTML; 
+            }
+        }
+        console.log(i); 
+    </script>
+</body>
+</html>

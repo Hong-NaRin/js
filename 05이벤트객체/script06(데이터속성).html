@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>부트스트랩 쓰다보면 data- 속성을 가진 애들</h3>
+
+    <ul class="nameList">
+        <li><a href="#" data-info="20" data-address="서울시" data-user='{"id": "aaa123", "age": 20}'>고윤정</a></li> <!-- data-아무이름 쓸 수 있음 -->
+        <li><a href="#" data-info="30" data-address="경기도" data-user='{"id": "bbb123", "age": 30}'>김지원</a></li>
+        <li><a href="#" data-info="25" data-address="남양주" data-user='{"id": "ccc123", "age": 25}'>김혜윤</a></li>
+        <li><a href="#" data-info="27" data-address="호평동" data-user='{"id": "ddd123", "age": 27}'>김고은</a></li>
+    </ul>
+
+    <script>
+        var nameList = document.querySelector(".nameList");
+        nameList.onclick = function() {
+            event.preventDefault(); // 고유 이벤트 중단 (A태그의 링크 이동)
+            if(event.target.tagName != "A") return; // A태그가 아니면 중단
+            
+            // console.dir(event.target); 
+            console.log(event.target.dataset.info); // data-info에 저장되는 값
+            console.log(event.target.dataset.address); // data-address에 저장되는 값
+            console.log(event.target.dataset.user); 
+
+            var obj = JSON.parse(event.target.dataset.user); // 위에처럼 바로 쓸 수 없기 때문에
+            console.log(obj);
+        }
+    </script>
+</body>
+</html>

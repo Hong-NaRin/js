@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* 
+        이벤트 버블링 -> 이벤트가 자식에서 부모로 동작되는 특성 
+        3번을 클릭하면 3 -> 2 -> 1 순서로 동작된다
+        */
+        .func1 {width: 300px; height: 300px; background-color: palevioletred;}
+        .func2 {width: 200px; height: 200px; background-color: palegoldenrod;}
+        .func3 {width: 100px; height: 100px; background-color: palegreen;}
+    </style>
+</head>
+<body>
+    <h3>이벤트 버블링 vs 이벤트 캡쳐링</h3>
+
+    <div class="func1">
+        <div class="func2">
+            <div class="func3">
+                func3(자식)
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var func1 = document.querySelector(".func1");
+        var func2 = document.querySelector(".func2");
+        var func3 = document.querySelector(".func3");
+
+        // func1.onclick = function() {
+        //     alert("func1번");    
+        // }
+        // func2.onclick = function() {
+        //     alert("func2번");
+        //     // event.stopPropagation(); // 이벤트에 버블링 or 캡쳐링 중단 -> 웬만하면 쓸 일이 없음
+        // }
+        // func3.onclick = function() {
+        //     alert("func3번");
+        // }
+
+        /*
+        이벤트 캡쳐링 -> 이벤트가 부모에서 자식으로 실행되는 특성
+        캡쳐링은 addEventListener로만 구현이 가능하고, 실제로 구현할 일은 거의 없음
+        이벤트 실행은 1 -> 2 -> 3번으로 동작됨
+        */
+
+        func1.addEventListener('click', function() {
+            alert("func1번");
+        }, true); // true는 캡쳐링 페이지를 동작하겠다는 의미
+
+        func2.addEventListener('click', function() {
+            alert("func2번");
+            // event.stopPropagation(); // 실행이 되지 않음
+        }, true); // true는 캡쳐링 페이지를 동작하겠다는 의미
+
+        func3.addEventListener('click', function() {
+            alert("func3번");
+        }, true); // true는 캡쳐링 페이지를 동작하겠다는 의미
+    </script>
+</body>
+</html>

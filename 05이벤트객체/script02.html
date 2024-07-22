@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul class="box">
+        <li>1. 안유진</li> 
+        <li>2. 이영지</li> 
+        <li>3. 이은지</li> 
+        <li>4. 미미</li> 
+        <li>5. 나영석</li> 
+    </ul>
+
+    <p class="result"></p>
+
+    <script>
+        // 부모 태그에 이벤트를 걸면, 자식한테 이벤트가 위임된다
+        var box = document.querySelector(".box"); // li의 부모님 box
+        var result = document.querySelector(".result"); 
+
+        box.onclick = function() {
+            // console.log('이벤트 동작됨!'); // ul, li 전부에 이벤트가 걸려 있어서 아무거나 눌러도 동작됨 
+            // console.log(event); // 이벤트에 대한 다양한 정보를 볼 수 있음
+            // console.log(event.target); // 이벤트가 동작한 태그를 볼 수 있음 (중요) 
+            // console.log(event.currentTarget); // 실제 이벤트가 걸려있는 태그 
+
+            // if(event.target.tagName == "UL") return; // 이벤트 동작이 ul인 경우 종료
+            // result.innerHTML = event.target.innerHTML; // 함수 매개변수로 e 넣으면 e, 아니면 event
+        }
+    </script>
+</body>
+</html>

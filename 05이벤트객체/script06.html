@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>이벤트 위임과 여러 클래스 제어</h3>
+    <div class="list">
+        <div>
+            <span>홍길동</span>
+            <button type="button" class="btn sel">선택</button>
+            <button type="button" class="btn del">삭제</button>
+        </div>
+        <div>
+            <span>열라면</span>
+            <button type="button" class="btn sel">선택</button>
+            <button type="button" class="btn del">삭제</button>
+        </div>
+        <div>
+            <span>신라면</span>
+            <button type="button" class="btn sel">선택</button>
+            <button type="button" class="btn del">삭제</button>
+        </div>
+        <div>
+            <span>진라면</span>
+            <button type="button" class="btn sel">선택</button>
+            <button type="button" class="btn del">삭제</button>
+        </div>
+    </div>
+
+    <script>
+        var list = document.querySelector(".list");
+        list.onclick=function(e) {
+            // e.target.className 이벤트가 동작한 태그(=버튼)의 클래스명 얻기
+            
+            // console.log(e.target.className);
+            // console.log(e.target.classList);
+
+            if(e.target.classList.contains("sel")) {
+                e.target.previousElementSibling.style.color = "red"; // e.target.previousElementSibling 이벤트가 동작한 태그(=버튼)의 그 이전(옆) 태그(=span 태그)
+            } else if(e.target.classList.contains("del")) {
+                e.target.parentElement.remove();
+            }
+        }
+    </script>
+</body>
+</html>

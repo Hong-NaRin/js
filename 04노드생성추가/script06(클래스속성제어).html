@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .btn.active {  /* 클래스명 버튼 안에 active가 있다면 */
+            color : red;
+        }
+    </style>
+</head>
+<body>
+    <h3>하나의 버튼으로 여러 작업을 동시에 한다 (토글버튼)</h3>
+    <button type="button" class="btn btn-default" id="btn">클래스속성제어하기</button>
+
+    <script>
+        var btn = document.getElementById("btn");
+        btn.onclick = function() {
+            // btn.type - 타입을 얻고 싶을 때
+            // btn.id - 아이디를 얻을 때
+            // console.log(btn.class); // 클래스는 키워드라 다른 것들과 똑같이 사용할 수 없음
+
+            // 클래스 속성은 className 또는 classList로 접근한다
+            // console.dir(btn.className); // 클래스명 전체를 문자열로 얻을 수 있음
+            // console.dir(btn.classList); // 클래스명을 배열로 얻을 수 있음 (여러 개일 때 사용)
+
+            // 클래스 추가
+            // btn.classList.add("active");
+            // 클래스 제거
+            // btn.classList.remove("btn-default");
+            // 클래스 확인여부
+            // console.log(btn.classList.contains("btn"));
+
+            // 1st
+            // if(btn.classList.contains("active")) {
+            //     btn.classList.remove("active");
+            // }
+            // else {
+            //     btn.classList.add("active");
+            // }
+
+            // 2nd
+            btn.classList.toggle("active"); // 있으면 remove, 없으면 add
+        }
+    </script>
+</body>
+</html>

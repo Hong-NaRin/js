@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>팝업창</h3>
+    <!-- 
+    <button type="button" id="closeBtn">x</button>
+    <script>
+        var closseBtn = document.getElementById("closeBtn");
+        closeBtn.onclick = function() {
+            window.close(); // 현재창을 닫기
+        }
+    </script> 
+    -->
+    <input type="checkbox" onclick="popup('mainPopup');">오늘 하루 이 창을 열지 않기
+    <script>
+        function popup(name) {
+            // 시간 설정
+            var date = new Date();
+            date.setDate(  date.getDate() + 1 );
+            date.setHours(0);
+            date.setMinutes(0);
+            date.setSeconds(0);
+        
+            // 쿠키에 저장할 문자열 생성
+            var str = name + "=true;expires=" + date.toUTCString() + ";";
+            // 쿠키 저장
+            document.cookie = str;
+
+            window.close(); //팝업창을 종료;
+        }  
+    </script>
+
+</body>
+</html>

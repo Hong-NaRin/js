@@ -57,30 +57,28 @@
             var li = document.createElement("li"); // li생성
             li.innerHTML = value;
 
-            
-            var upBtn = document.createElement("button"); // btn 생성
+            // 업버튼
+            var upBtn = document.createElement("button"); 
             upBtn.type = "button";
             upBtn.innerHTML = "↑";
             upBtn.onclick = upTodo; // ()없이 이름만 넣어서 함수를 변수에 저장
             li.appendChild(upBtn);
             
-            var downBtn = document.createElement("button"); // btn 생성
+            // 다운 버튼 
+            var downBtn = document.createElement("button"); 
             downBtn.type = "button";
             downBtn.innerHTML = "↓";
-            downBtn.onclick = downTodo;
+            downBtn.addEventListener('click', downTodo);
             li.appendChild(downBtn);
             
-            var del = document.createElement("button");
-            del.type="button";
-            del.innerHTML = "X";
-            del.onclick = delTodo;
-            li.appendChild(del);
+            // 삭제버튼
+            var delBtn = document.createElement("button"); 
+            delBtn.type="button";
+            delBtn.innerHTML = "X";
+            delBtn.addEventListener('click', del);
+            li.appendChild(delBtn);
 
             todoList.appendChild(li);
-        }
-
-        function delTodo(this) {
-            this.remove();
         }
 
         function upTodo() {
@@ -88,7 +86,7 @@
             console.log(this); // this 쓸 때는 개발자 도구로 값을 확인 
             var current = this.parentElement;
             var prev = current.previousElementSibling;
-
+            
             if(prev == null)  { // 이전 행이 없으면 종료
                 return;
             }
@@ -96,11 +94,11 @@
                 todoList.insertBefore(current, prev);
             }
         }
-
+        
         function downTodo() {
             var current = this.parentElement;
             var next = current.nextElementSibling;
-
+            
             if(next == null) {
                 return;
             }
@@ -108,7 +106,11 @@
                 todoList.insertBefore(next, current);
             }
         }
-
-    </script>
+        
+        function del() {
+            // this.parentElement.remove(); // 1st
+            todoList.removeChild(this.parentElement); // 2nd
+        }
+        </script>
 </body>
 </html>
