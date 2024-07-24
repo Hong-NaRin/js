@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 어떤 기능이 하나 있음
+        function getCurrentPosition(func) { // 매개변수 타입은 함수
+            func("success");
+        }
+
+        // 동기적 - 순서대로 실행됨 
+        // 콜백함수 - 동기적 콜백
+        getCurrentPosition(function(success) {
+            console.log(success); // <- func1이 실행해서 전달해준 결과값
+        });
+
+        //비동기적 - 순서대로 실행되지 않음 (두가지 이상의 작업을 동시에 할 수 있음)
+        function asyncFunc(func) {
+            setTimeout(func, 5000); // 5초 뒤에 function 내부가 실행됨
+        }
+        console.log(1);
+
+        asyncFunc(function() {
+            console.log("콜백 함수 동작함");
+        });
+
+        console.log(2);
+
+
+    </script>
+</body>
+</html>

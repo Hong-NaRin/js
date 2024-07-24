@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <button type="button" id="stopBtn">중지버튼</button>
+
+    <script>
+        //window.alert("window는 생략을 할 수 있음");   
+        //window.confirm("window는 생략하고 쓸 수 있음");
+
+        //var a = 10; //멤버변수도 window객체 안에 저장됨
+        //console.log(window);
+
+
+        //각 인터벌의 고유한 값을 반환
+        //var stopId = setInterval(timeFunc, 1000);
+        // function timeFunc() {
+        //     console.log(1);
+        // }
+
+        var stopId = setInterval(function() {
+            console.log(1);
+        }, 1000);
+
+        var stopBtn = document.getElementById("stopBtn");
+        stopBtn.onclick = function() {
+            
+            clearInterval(stopId); //해당 인터벌을 중지
+
+            clearTimeout(stopId2); //해당 타임아웃을 중지
+        }
+
+        //타임아웃 -> 일정 시간 뒤에 1번 실행
+        var stopId2 = setTimeout(function() {
+            console.log("setTimeout 3초뒤에 실행됨");
+        }, 3000);
+
+    </script>
+</body>
+</html>

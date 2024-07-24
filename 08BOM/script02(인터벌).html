@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .my-img {
+            animation: fadeIn 0.5s ease-in-out;
+            width: 100%; 
+            height: 100%;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        .wrap-slide {position: relative;}
+        .wrap-slide > .stop-btn {
+            position: absolute; 
+            left: 50%; 
+            bottom: 30px;
+            background-color: #222; 
+            color:whitesmoke; 
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+            border-radius: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="wrap-slide">
+        <div class="my-slide">
+            <img src="img/1.jpg" alt="my-img" style="width: 100%; height: 100%;">
+        </div>
+
+        <div class="stop-btn stop" id="stop-btn">
+            멈춰
+        </div>
+    </div>
+
+    <script>
+        var mySlide = document.querySelector(".my-slide");
+        var num = 1;
+        function changeImg() {
+            var img = document.createElement("img");
+            img.src = "img/" + ++num + ".jpg";
+            img.classList.add("my-img");
+
+            mySlide.appendChild(img); // 하나 추가
+            mySlide.removeChild(mySlide.firstElementChild); // 첫번째 자식 삭제
+
+            // 적절한 시점에 초기화
+            if(num == 4) num = 1;
+        }
+
+        // 프로그램 시작시에 동작할 기능을 적는다 
+        (function() {
+            stopId = setInterval(changeImg, 3000); // 3초마다 동작
+        }) ();
+
+        // 일시정지, 재개
+        var stopBtn = document.getElementById("stop-btn");
+        stopBtn.onclick = function() {
+            if(stopBtn.classList.contains("stop")) { // stop클래스가 있다면 중지
+                clearInterval(stopId);
+                stopBtn.innerHTML = "시작";
+            }
+            else { // stop클래스가 없다면 재개
+                stopId = setInterval(changeImg, 3000);
+                stopBtn.innerHTML = "멈춰";
+            }
+            stopBtn.classList.toggle("stop");
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .movieList {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .movieList > .movie {
+            flex-basis: 25%;
+            height: 300px;
+            overflow: hidden;
+            display: flex;
+        }
+        .overlay {
+            position: absolute; /* 바디 기준으로 */
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: #ccc;
+            display: none;
+        }
+        </style>
+
+</head>
+<body>
+    htpps://yts.mx/api
+    <div class="pageNation">
+        <a href="#">1</a>
+        <a href="#">2</a>
+        <a href="#">3</a>
+        <a href="#">4</a>
+        <a href="#">5</a>
+        <a href="#">6</a>
+        <a href="#">7</a>
+        <a href="#">8</a>
+        <a href="#">9</a>
+        <a href="#">10</a>
+    </div>
+
+    <button type="button" onclick="ajax()">데이터 가져오기</button>
+    <div class="movieList">
+        <!-- 
+        <div class="movie">
+            <img src="#" alt="제목">
+            <div class="inner">
+                <p>제목</p>
+                <p>내용</p>
+            </div>
+        </div>
+        -->
+    </div>
+
+    <div class="overlay">
+        로딩 중입니다.
+    </div>
+
+    <script>
+        
+        var movieList = document.querySelector(".movieList");
+        var overlay = document.querySelector(".overlay");
+        var page = 1;
+
+        function ajax() {
+
+            overlay.style.display = "block"; // 오버레이 활성화 
+
+            // fetch("https://yts.mx/api/v2/list_movies.json")
+            fetch("https://yts.mx/api/v2/list_movies.json?sort_by=rating&genre=Action&page=" + page) // 뒤에 ?쓰고 키=값
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(obj) {
+                // 외국에 있는 서버 API이기 때문에 반환까지 시간이 조금 걸림
+                // console.log(obj);
+                // var data = obj.data.movies 또는 
+                var data = obj["data"]["movies"] // 위랑 같음
+                var str = ""; 
+
+                for(var i = 0; i < data.length; i++) {
+                    var img = data[i].medium_cover_image;
+                    var title = data[i].title;
+                    var summary = data[i].summary;
+                    // console.log(img, title, summary);
+
+                    //  console말고 화면에 띄움
+                    str += '<div class="movie">';
+                    str += '<img src="' + img + '" alt="' + title + '">';
+                    str += '<div class="inner">';
+                    str += '<p>' + title + '</p>';
+                    str += '<p>' + summary + '</p>';
+                    str += '</div>';
+                    str += '</div>';
+                }
+                movieList.innerHTML = str;
+
+                // 콜백이 돌아오는 시점이 끝날 때 넣어줘야 함
+                overlay.style.display = "none";
+            })
+        }
+
+        // pageNation 이벤트 -> 부모님한테 이벤트 걸면, 자식에게도 이벤트 걸림
+        var pageNation = document.querySelector(".pageNation");
+        pageNation.addEventListener("click", function() {
+            event.preventDefault(); // a의 이벤트 중단
+            if(event.target.tagName != "A") return; // A가 아니면 종료
+            page = event.target.innerHTML; // 멤버변수 page에 저장
+            ajax(); // ajax 함수 호출
+        })
+    </script>
+</body>
+</html>

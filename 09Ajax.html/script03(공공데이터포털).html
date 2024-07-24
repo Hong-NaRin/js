@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        // 공공데이터 포털 사용하다보면 CORS 나오는 경우 - 서버에서 거절한 것이기 때문에, 사용 불가
+        // fetch("http://openapi.seoul.go.kr:8088/인증키/json/bikeList/1/5/")
+        fetch("http://openapi.seoul.go.kr:8088/68624b5066796f70383449416a4357/json/bikeList/1/5/")
+        .then(function(response) {
+            return response.json()
+        })
+        .then(function(data) {
+            console.log(data);
+        })
+    </script>
+</body>
+</html>

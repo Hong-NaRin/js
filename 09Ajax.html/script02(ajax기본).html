@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // fetch("hello.txt")
+        // .then(function(response) {
+        //     response.text().then(function(data) {
+        //         console.log(data); // hello world
+        //     })
+        // });
+
+        /*
+        Promise는 fetch의 실행 결과를 반환해주는 객체
+        PromiseState에서 3가지 상태를 나타냄
+        1. fulfilled - 성공적 수행
+        2. pending - 대기중
+        3. reject - 거절(실패)
+
+        이 객체 안에는 then(콜백) 함수가 있고, 실행결과를 콜백에 전달시킴
+        콜백은 실행 결과가 얼마나 걸릴지 모르니, call했을 때 결과를 back 받을 함수
+        */
+
+        // 1st
+        // var promise = fetch("hello.txt") // Promise 객체 반환
+        // promise.then(function(response) {
+        //     console.log(response);
+        // });
+
+        // 2nd - 위랑 같음
+        // 순서 보장이 되지 않음 1 -> 3 -> 2(시간이 걸리기 때문에 기다렸다가 3번 실행이 아니라 3번이 먼저 실행됨)
+        // console.log(1);
+        // fetch("hello.txt")
+        // .then(function(response) {
+        //     console.log(response);
+        //     console.log(2); 
+        // })
+        // console.log(3);
+
+        // 3nd 
+        // fetch("hello.txt") 
+        // .then(function(response) {
+        //     // console.log(response);
+        //     if(response.status != 200) {
+        //         console.log("요청에 실패했습니다");
+        //         return;
+        //     }
+        //     // console.log(response);
+        //     // response에서 데이터를 꺼냄
+        //     // text() 함수는 문자열의 형태로 데이터를 꺼냄 - 반환은 Promise객체
+        //     response.text().then(function(data) {
+        //         console.log(data);
+        //     })
+        // }) 
+
+        // 4nd - json() 제이슨 타입을 받는 경우
+        // fetch("hello.json")
+        // .then(function(response) {
+        //     response.json().then(function(data) {
+        //         console.log(data);
+        //     })
+        // })
+
+        // 5nd
+        fetch("hello.json")
+        .then(function(response) {
+            return response.json(); // 콜백 안에서 return을 주면 다시 promise가 결과값을 받아감
+        })
+        .then(function(data) {
+            return data;
+        })
+        .then(function(data) {
+            return data; // 무한대로 할 수 있음
+        })
+        .then(function(data) {
+            console.log(data); // 마지막에 값 받기
+        })
+        .catch(function(e) {
+            console.log(e);
+        })
+    </script>
+</body>
+</html>
