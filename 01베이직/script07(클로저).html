@@ -46,7 +46,6 @@
             return function() {
                 return a;
             }
-
         } // a의 접근 범위가 여기서 끝
 
         var x = func(); // 내부함수를 반환시킬 수 있음
@@ -89,9 +88,9 @@
             } // {키:값}
         }
         var obj = obj();
-        console.log(obj);
+        console.log(obj); // Object
         obj.setName("이순신"); // setter
-        console.log(obj.getName());
+        console.log(obj.getName()); // 이순신
     </script>
 </body>
 </html>

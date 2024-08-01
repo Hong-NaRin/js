@@ -7,7 +7,7 @@
 </head>
 <body>
     <script>
-        /* 즉시 실행 함수 형태*/ 
+        /* 즉시 실행 함수 형태 */ 
         (function() {
             console.log('즉시실행함수 호출!');
         }) (); // 함수 호출문
@@ -16,19 +16,15 @@
         (function(a,b) {
             console.log('즉시실행함수 호출!');
             console.log('매개변수:', a,b);
-
             test01();
-            test02();
-            
+            test02();         
         }) ('홍길동', 20); // 함수 호출문
-
 
         // 화면 로딩에서 실행되는 프로그램 코드를 순서대로 작성
         function test01() {
             console.log('test01 실행');
             return 'test01';
         }
-
         function test02() {
             console.log('test02 실행');
             return 'test02'

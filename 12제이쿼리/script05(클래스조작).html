@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 링크 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <button type="button" id="btn" class="btn btn-default">클래스 조작 테스트</button>
+    
+    <script>
+        // js
+        // var btn = document.getElementById("btn");
+        // btn.classList.add("클래스추가"); // 클래스에 추가
+        // btn.classList.remove("클래스추가"); // 삭제
+
+        // 제이쿼리
+        $("#btn").addClass("myBtn"); // 추가
+        $("#btn").removeClass("btn"); // 삭제
+        console.log( $("#btn").hasClass("btn") ); // 클래스명에 btn이 포함되어 있으면 true, 없으면 false
+    </script>
+
+    <h3>토글</h3>
+    <button type="button" id="toggle" class="dark">토글 버튼</button>
+
+    <script>
+        $("#toggle").click(function() {
+            console.log('hello');
+            console.log(this);
+            console.log(event.target);
+        
+            // $(this)
+            $(event.target).toggleClass("dark"); // dark 클래스가 있다가 사라졌다가 함
+        })
+    </script>
+
+    <hr>
+    <button type="button" id="test" class="test aaa">실습</button>
+
+    <script>
+        // test버튼에 aaa클래스가 있다면 body 배경색을 검은색
+        // test버튼에 aaa클래스가 없다면 body 배경색을 흰색으로
+        $("#test").click(function() {
+            if($("#test").hasClass("aaa")) {
+                $("body").css("backgroundColor", "black");
+            }
+            else {
+                $("body").css("backgroundColor", "white");
+            }
+            $("#test").toggleClass("aaa");
+        })
+
+    </script>
+</body>
+</html>

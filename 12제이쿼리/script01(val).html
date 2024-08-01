@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 링크 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <input type="text" name="name" id="apple" value="홍길동">
+    <input type="text" class="melon">
+
+    <script>
+        // js코드로 val를 얻으면?
+        var apple = document.getElementById("apple");
+        console.log(apple);
+
+        // 제이쿼리 - $("선택자")를 쓰면 init객체를 돌려주는데 $("선택자")[0]으로 순수 엘리먼트를 취득할 수 있다
+        // 결론적으로 $("선택자").제이쿼리 함수()를 쓰면 된다
+        // var a = $("#apple")[0]
+        // console.log(a);
+
+        // 값을 얻음
+        var a = $("#apple").val()
+        console.log(a);
+
+        // 값의 수정
+        $(".melon").val("값을 추가");
+    </script>
+</body>
+</html>

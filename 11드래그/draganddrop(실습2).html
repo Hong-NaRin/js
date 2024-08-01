@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        ul, li {list-style: none; padding: 0; margin: 0;}
+        .container {display: flex; flex-flow: column wrap; width: 1250px; margin: 0 auto;}
+        .wrap {display: flex; justify-content: space-between; align-items: center; width: 1250px; margin: 0 auto;}
+        .list{display: flex; flex-flow: row wrap; justify-content: space-between; width: 900px;}
+        .list li {border: 1px solid #777; flex: 0 0 180px; height: 280px; padding: 10px; }
+        .dropzone {width: 300px; height: 600px; border: 1px solid #777; overflow: auto;}
+    </style>
+
+</head>
+<body>
+    
+    <div class="container">
+        <h2>드랍아이템 만들기</h2>
+        <h2>1. li는 이벤트위임 방법을 사용하여 처리하면 만점 입니다!</h2>
+
+        <div class="wrap">
+            <ul class="list">
+                <li class="box" draggable="true">아이템1</li>
+                <li class="box" draggable="true">아이템2</li>
+                <li class="box" draggable="true">아이템3</li>
+                <li class="box" draggable="true">아이템4</li>
+                <li class="box" draggable="true">아이템5</li>
+                <li class="box" draggable="true">아이템6</li>
+                <li class="box" draggable="true">아이템7</li>
+                <li class="box" draggable="true">아이템8</li>
+            </ul>
+            <div class="dropzone">
+                여기에 메뉴를 던지세요
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var list = document.querySelector(".list");
+        var dropzone = document.querySelector(".dropzone");
+        var clone = null;
+
+        list.addEventListener("dragstart", function() {
+            if(event.target.tagName != "LI") return;
+            clone = event.target.cloneNode(true);
+        })
+
+        dropzone.addEventListener("dragover", function() {
+            event.preventDefault();
+        })
+
+        dropzone.addEventListener("drop", function() {
+            event.preventDefault();
+            dropzone.appendChild(clone);
+        })
+    </script>
+
+
+</body>
+</html>

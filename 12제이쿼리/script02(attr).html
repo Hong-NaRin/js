@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 링크 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <input type="text" id="test1" readonly>
+
+    <img src="#" alt="제목" class="example" id="test2" width="100">
+
+    <script>
+        // js
+        // var test1 = document.getElementById("test1");
+        // test1.type = "number"; // 타입 속성 변경
+        // test1.readOnly = false; // readonly 변경
+        // console.log(test1);
+
+        // 제이쿼리
+        // 속성 변경
+        $("#test1").attr("type", "number"); // $("선택자").attr("변경할 속성명", "변경할 값");
+        $("#test1").attr("readOnly", false);
+
+        // 속성 얻음
+        var result = $("#test1").attr("id");
+        console.log(result);
+
+        // 여러값을 한 번에 바꿈
+        $("#test2").attr( {
+            "src" : "profile.png",
+            "class" : "xxxx",
+            "alt" : "yyyy",
+            "width" : 200
+        })
+    </script>
+</body>
+</html>

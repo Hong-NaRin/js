@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        ul, li {list-style: none; padding: 0; margin: 0;}
+        .wrap {display: flex; flex-direction: column; justify-content: center; align-items: center; }
+        .list{display: flex; flex-flow: row wrap; justify-content: space-between; width: 900px;}
+        .list li {border: 1px solid #777; flex: 0 0 180px; height: 280px; padding: 10px; margin-top: 10px;}
+    </style>
+
+
+</head>
+<body>
+
+    
+    <div class="wrap">
+        <h2>움직여봐</h2>
+        <h2>1. dropzone은 이벤트 위임방식으로 처리되면 만점!</h2>
+
+        <ul class="list">
+            <li class="box">
+                <img src="https://tcpschool.com/examples/images/img_monalisa.png" alt="이미지" draggable="true">
+            </li>
+            <li class="box"></li>
+            <li class="box"></li>
+            <li class="box"></li>
+            <li class="box"></li>
+            <li class="box"></li>
+            <li class="box"></li>
+            <li class="box"></li>
+        </ul>
+    </div>
+
+    <script>
+        var img = document.querySelector(".box > img");
+
+        //ul에 이벤트를 걸어서 이벤트 위임
+        var list = document.querySelector(".list");
+        list.addEventListener("dragover", function() {
+            event.preventDefault(); //파일 드롭시 브라우저가 파일을 열려고 하는 이벤트 중단
+        })
+
+        list.addEventListener("drop", function() {
+            event.preventDefault(); //파일 드롭시 브라우저가 파일을 열려고 하는 이벤트 중단
+
+            if(event.target.tagName != "LI") return; //li가 아니면 이벤트중단
+            event.target.appendChild(img); //이미지를 li의 자식으로
+
+        })
+    </script>
+
+
+
+</body>
+</html>

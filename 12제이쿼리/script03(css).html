@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 링크 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <ul class="test1">
+        <li>a</li>
+        <li>b</li>
+        <li>c</li>
+        <li>d</li>
+    </ul>
+
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+    <div class="box">box</div>
+
+    <script>
+        // js로 li태그 style 전부 변경하기
+        // var arr = document.querySelectorAll(".test1 > li");
+        // for(var i = 0; i < arr.length; i++) {
+        //     arr[i].style.backgroundColor = "skyblue";
+        // }
+
+        // 제이쿼리 css 변경 - 단일, 다중 상관없이 한 번에 모두 바꿔줌
+        $(".test1 > li").css("backgroundColor", "skyblue");
+
+        // css값 얻음
+        var result = $(".test1 > li").css("backgroundColor");
+        console.log(result);
+
+        // css여러 값 변경 
+        $(".box").css({ // "키" : "값"
+            "backgroundColor" : "palegoldenrod",
+            "width" : "50px",
+            "height" : "50px",
+            "border" : "1px solid #ccc",
+            "display" : "inline-block"
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        .container {
+            width: 300px;
+            height: 300px;
+            border: 3px dotted black;
+        }
+
+        .container:hover {
+            border: 3px solid blue;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <p class="title">파일을 올려주세요</p>
+    </div>
+
+    <script>
+        var container = document.querySelector(".container");
+
+        container.addEventListener("dragover", function() {
+            event.preventDefault();
+        })
+
+        container.addEventListener("drop", function() {
+            event.preventDefault();
+
+            // console.dir(event);
+            // event.dataTransfer 속성은 드래그된 파일에 대한 정보를 확인할 수 있는 속성
+            // console.log(event.dataTransfer.files);
+            // console.log(event.dataTransfer.files[0]); // 파일 정보 - 파일정보는 나중에 서버로 전송이 됨
+
+            var fileName = event.dataTransfer.files[0].name; // 파일명
+            var p = document.createElement("p");
+            p.innerHTML = fileName;
+
+            event.target.appendChild(p); 
+        })
+    </script>
+</body>
+</html>

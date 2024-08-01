@@ -11,13 +11,13 @@
         var load = document.getElementById("load"); // 이 당시에는 load 태그가 없음
         console.log(load); // load가 없는데 먼저 실행이 되므로 null
 
-        // 위에 로드 순서에 따라 null값이 아닌 값이 나오게 하는 방법  
+        // 위에 로드 순서에 따라 null값이 아닌 값이 나오게 하는 방법 
         // 단, onload는 화면에서 단 1개만 쓸 수 있음
         window.onload = function () { // 화면이 전부 로드된 이후에 실행되는 이벤트
-            var load = document.getElementById("load");
-            console.log(load);
-            load.onclick = function() {
-                console.log('로드이벤트 이후에 클릭이벤트');
+            var load = document.getElementById("load"); 
+            console.log(load); 
+            load.onclick = function() { 
+                console.log('로드이벤트 이후에 클릭이벤트'); 
             }
         }
     </script>
@@ -28,8 +28,8 @@
     <script>
         // 기본이벤트 - 엘리먼트를 우선 취득(얻음) 이벤트를 건다
         var btn = document.getElementById("btn")
-
         // console.log(btn);
+
         // 이벤트 대입
         btn.onclick = function() {
             console.log('기본이벤트 동작');

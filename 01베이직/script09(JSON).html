@@ -19,12 +19,12 @@
         var json = JSON.stringify(data);
         console.log(json);
 
-        // 문자열(JSON) -> 객제, 배열 반환 JSON.parse()
+        // 문자열(JSON) -> 객체, 배열 반환 JSON.parse()
         var obj = JSON.parse(json);
         console.log(obj);
         
         // 단, JSON 문자열을 표기할 때는 중요한 규칙이 하나 있는데 key, value가 반드시 ""로 묶여야 parsing 시킬 수 있음
-        // var x = '{name: "홍길동", age: 2}'
+        // var x = '{name: "홍길동", age: 2}' 불가
         var x = '{"name": "홍길동", "age": 2}' 
         var result = JSON.parse(x);
         console.log(result);

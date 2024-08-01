@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="box"></div>
+
+    <script>
+        $(document).ready(function() {
+            // 클라이언트 로딩보다 늦게 실행됨
+            var str = "";
+            str += "<a href='#'>태그1</a>";
+            str += "<a href='#'>태그2</a>";
+            str += "<a href='#'>태그3</a>";
+
+            $(".box").html(str);
+        })
+
+        // 이 당시에는 a가 없으니까 이벤트 안 걸림
+        // $(".box > a").click(function() {
+        //     event.preventDefault();
+        //     console.log("이벤트가 실행되나요?");
+        // })
+
+        // 위와 같은 상황은 이벤트 위임으로 처리함
+        // 이벤트 위임 - 부모에 이벤트를 걸고 자식에서 위임 받음
+        // $("선택자").on("click", "위임받을 선택자", function() {});
+        $(".box").on("click", "a", function() { // .box에 click, a태그한테 위임
+            console.log("이벤트가 실행 되나요?");
+        });
+    </script>
+
+    <script>
+        $(".box").on('mouseenter', function() { // 일반적인 이벤트 - 위임은 불가함
+            console.log(11111);
+        }).on('mouseleave', function() { // 이벤트 체이닝 - 계속 걸 수 있음
+            console.log(22222);
+        })
+    </script>
+</body>
+</html>

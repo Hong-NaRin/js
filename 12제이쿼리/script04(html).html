@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- 제이쿼리 링크 -->
+    <script src="js/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="test1"></div>
+    <div class="test2"></div>
+
+    <script>
+        // js
+        // document.querySelector(".test1").innerHTML = "<a href='#'>태그</a>";
+
+        // 제이쿼리
+        // $("선택자").html() - 태그 형태로 들어감
+        $(".test1").html("<a href='#'>태그</a>"); 
+        // $(".test1").html(""); // 공백 - 내용 없어짐
+
+        // innerHTML 값 얻기
+        var a = $(".test1").html()
+        console.log(a);
+
+        // 순수 text 형태로 값 넣기
+        $(".test2").text("<a href='#'>태그</a>");
+    </script>
+</body>
+</html>

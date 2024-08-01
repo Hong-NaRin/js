@@ -20,12 +20,11 @@
         console.log(person["age"]);
         console.log(person["arr"]);
         console.log(person["arr"][0]);
-
         console.log("----------------------------------------------");
+
         // 객체 안에 객체가 들어가는 구문
         var exam = {math: 80, eng: 70, kor: 90};
         var hong = {name: '홍길동', exam: exam }
-
         console.log(hong.exam.math); // 80
         console.log(hong["exam"]["math"]); // 80
         console.log(hong["exam"].math); // 80 ->  혼용도 가능
