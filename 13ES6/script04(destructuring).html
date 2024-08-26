@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        //제이슨 구조에서 큰 역할을 함
+        let list = [
+            {
+                "num" : 1,
+                "title" : "hello",
+                "info" : ["apple", "banana"],
+                "profile" : {birth: "2020", img: "abc.png"}
+            },
+            {
+                "num" : 2,
+                "title" : "bye",
+                "info" : ["melon", "orange"],
+                "profile" : {birth: "2024", img: "abcddddd.png"}
+            },
+        ]
+
+        //두번째 객체
+        let [ , a] = list;
+        console.log(a);
+        
+        let [ , {num, title}] = list;
+        console.log(num, title);
+        
+        let [ , {info : [x, y] }] = list;
+        console.log(x, y);
+        
+        //두번째객체 profile안에 있는 birth, img를 한번에 뽑으려면?
+        let [, {profile : {birth, img} }] = list;
+        console.log(birth, img);
+        
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        
+        // var a = 10;
+        // if(true) {
+        //     var a = 100; //var스코프는 function
+        // }
+        // console.log(a); //100
+
+        let a = 10;
+        if(true) {
+            let a = 100; //let스코프는 중괄호
+        }
+        console.log(a); //10
+        //let a = 10; //중복변수 선언 x
+
+        
+        const GENDER = "man"; //상수
+        //GENDER = "woman"; //err
+
+
+        //const키워드는 객체나, 배열에서는 내부값에 변경은 됩니다.
+        const arr = ["a", "b", "c"];
+        //arr = ["a"]; //err
+        arr[0] = "홍길동"; //ok
+        arr[1] = "이순신"; //ok
+        console.log(arr);
+
+    </script>
+
+    <ul>
+        <li>목록1</li>
+        <li>목록2</li>
+        <li>목록3</li>
+        <li>목록4</li>
+        <li>목록5</li>
+    </ul>
+
+    <script>
+        //li를 얻어서 반복으로 이벤트를 건다고 하면?
+        var li = document.querySelectorAll("ul > li")
+
+        for(let i = 0; i < li.length; i++) {
+            li[i].addEventListener("click", function() {
+                console.log(i);
+            })
+        }
+        //var = i는 5로 전역변수 취급...
+
+    </script>
+
+
+
+
+
+
+</body>
+</html>

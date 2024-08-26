@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = [1,2,3,4,5];
+
+        // for(var i in arr) {
+        //     //console.log(i); //인덱스
+        //     console.log(arr[i]) ; //값
+        // }
+
+        // arr.forEach(function(value, index) {
+        //     console.log( index, "는", value );
+        // })
+
+        for(let i of arr) {
+            console.log(i); //i는 값이 됩니다.
+        }
+
+        let arr2 = [{a: 1, b:"홍길동"}, {a: 2, b:"이순신"}];
+        //구조분해 재할당
+        for(let {a, b} of arr2) {
+            console.log(a, b);
+        }
+
+
+        
+
+
+
+    </script>
+
+</body>
+</html>

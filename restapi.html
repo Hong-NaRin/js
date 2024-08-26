@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3>다른 서버에서 요청</h3>
+
+    <button type="button" id="postBtn">post방식</button>
+
+    <script>
+        var postBtn = document.getElementById("postBtn");
+        postBtn.addEventListener("click", function() {
+            // post
+            fetch("http://localhost:8181/getEntity", {
+                method : "post",
+                headers : {
+                    "Content-Type" : "application/json"
+                    // 서로 주고 받으려면 서버에서도 Content-Type을 명시하면 클라이언트에서도 명시해줘야 함
+                    // json을 받으려면 RestController와 같이 Content-Type 써야함
+                    // Content-Type을 쓰지 않으면 text로 받아들여서 RestController에서 @RequestBody를 썼을 때 오류 발생
+                },
+                body : JSON.stringify({num: 1, name: "홍길동"})
+            })
+            .then(function(response) {
+                return response.json(); // response.json()으로 파싱
+            })
+            .then(function(data) {
+                console.log(data);
+            })
+        })
+    </script>
+</body>
+</html>

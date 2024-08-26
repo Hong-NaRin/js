@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let arr = [1,2,3,4];
+        
+        //let n1 = arr[0];
+        //let n2 = arr[1];
+        //...
+        let [a,b,c,d] = arr; //위치요소 반환
+        console.log(a,b,c,d);
+
+        let [n1, , ,n4] = arr;
+        console.log(n1, n4);
+
+        let [...x] = arr;
+        console.log(x); //배열모형
+
+        let [k1, k2, ...y] = arr;
+        console.log(k1, k2, y);
+        
+        //////////////////////////////////////////////
+        console.log("---------------------------------")
+        //객체에서 구조재할당
+        let obj = {"name": "홍길동", "age": 20};
+
+        //console.log( obj["name"], obj.name )
+
+        //let {name, age} = obj;
+        //let {name} = obj;
+        //console.log(name);
+
+        //다른 이름으로 가져오기
+        let {name: i1, age: i2} = obj;
+        console.log(i1, i2);
+        
+
+
+
+
+
+    </script>
+
+</body>
+</html>

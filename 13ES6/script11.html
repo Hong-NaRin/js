@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+
+    <script type="module">
+        //html5에서 예외적으로 module방식을 쓰려면 type=module을 씁니다.
+
+        //import구문1
+        // import {name, age, info} from './script11.js'
+        // import {x, y, add} from './script11.js';
+        // console.log(name);
+        // console.log(age);
+        // info();
+
+        //import구문2
+        // import * as example  from './script11.js';
+
+        // console.log(example.name);
+        // console.log(example.age);
+        // example.info();
+        
+        //import구문3
+        import {x as a1, y as a2, add as a3} from './script11.js';
+        
+        console.log(a1, a2, a3);
+        
+
+
+
+
+
+    </script>
+
+</body>
+</html>

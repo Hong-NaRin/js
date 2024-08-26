@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        let arr = [1,2,3];
+
+        //arr.forEach(function(v, i) {})
+        arr.forEach( (v, i) => {} )
+
+        // setInterval(function() {
+        //     console.log(1);
+        // }, 1000);
+        setInterval( () => {}, 1000)
+
+        // fetch("url")
+        // .then(function(response) {
+        //     return reponse.json();
+        // })
+        // .then(function(data) {
+        //     console.log(data);
+        // })
+
+        // fetch("url")
+        // .then( response => response.json())
+        // .then( data => console.log(data) );
+
+        //////////////////////////////////////////////////////////////////////
+        //filter함수는 filter( 콜백(현재값, 인덱스, 현재배열) )
+
+        let list = [1,2,3,4,5,6,7,8,9,10];
+
+        let result = list.filter( (v, i) => v % 2 == 0 ) //리턴에 담긴 값을 필터링
+        console.log(result);
+
+        //map함수는 map( 콜백(현재값, 인덱스, 현재배열) )
+        let result2 = list.map( (v, i) => v * v ); //리턴에 담긴 값으로 새로운 배열을 만듬
+        console.log(result2);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>

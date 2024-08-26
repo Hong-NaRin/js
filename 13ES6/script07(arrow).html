@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //a();
+        // var a = function() {
+        //     console.log("실행됨");
+        // }
+
+        let a = () => {
+            console.log("실행됨");
+        }
+        a();
+
+        //문법1 -> 코드가 한줄이면 {} 생략가능, 그러면 자동리턴됩니다.
+        let a2 = (a, b) => a + b;
+        let a3 = (a, b = 20) => console.log(a, b);
+        
+        console.log( a2(1, 2) );
+        a3(10); //10, 20
+
+        //문법2 -> 매개변수가 1개면 ()생략이 가능함.
+        let a4 = a => a + 10;
+        console.log( a4(10) );
+
+        //문법3 -> 객체를 반환하려면 ()로 묶어줍니다.
+        // let a5 = a => {
+        //     return {"name": a};
+        // }
+        let a5 = a => ({"name": a});
+        console.log( a5("홍") );
+        
+        
+
+
+    </script>
+
+</body>
+</html>

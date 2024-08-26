@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+
+        //es6 - 일반 html에는 굳이 쓸필요는 없음
+        class Person {
+
+            name = "홍길동"; //멤버변수 (키워드를 적지 않음)
+            age = 20;
+
+            //생성자 - 하나만 작성할 수 있음.
+            //constructor() {} 
+            constructor(addr) { 
+                this.addr = addr; //자동으로 멤버변수 addr을 추가해줍니다.
+            }
+
+            func = () => {
+                console.log("함수1")
+            }
+            
+            getName = () => {
+                return this.name;
+            }
+        }
+
+        //객체생성
+        let p1 = new Person("서울시");
+
+        console.log(p1.addr  )
+        console.log(p1.age  )
+        console.log(p1.name  )
+        console.log(p1.getName() )
+        p1.func();
+        
+        //생성자가 없더라도, 기본생성자로 생성이 가능함.
+        let p2 = new Person();
+
+
+
+
+
+
+
+
+
+    </script>
+
+</body>
+</html>
